@@ -33,8 +33,8 @@ slots:
 
 actions:
   - custom_select_function
-  - action_clear_slots
   - custom_logic_function
+  - action_clear_slots
 
 intents:
   - greet
@@ -49,7 +49,7 @@ intents:
 
 responses:
   utter_greet:
-  - text: "Hello there, how may I call you?"
+  - text: "Hello there! how may I call you?"
 
   utter_assistance:
   - text: "Hey {name}! would you like to check your balance or transaction history?"
@@ -58,13 +58,19 @@ responses:
   - text: "Sure. Could you provide phone number and account number in sequence?"
 
   utter_balance_info:
-  - text: "Dear {name}, your {account} has a balance of Rs. 1000"
+  - text: "Dear {name}, your {account} has a balance of Rs. {balance}"
 
   utter_transaction_info:
-  - text: "Dear {name}, your {account} account's  transaction history is: \n"
+  - text: "Dear {name}, your {account} account's  transaction history is: \n{balance}"
 
   utter_anything_else:
-    - text: "Do you need help with anything else?"
+    - text: "Do you need help with anything else? (Y/N)"
+
+  utter_credentials_mismatch:
+    - text: "Your {name}, {number}, {account} does not match"
+
+  utter_try_again:
+    - text: "wanna try again? (Y/N)"
 
   utter_goodbye:
   - text: "Goodbye! Have a great day"

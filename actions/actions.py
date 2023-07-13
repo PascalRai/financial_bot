@@ -30,10 +30,21 @@ class CustomAction(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # Perform custom logic
-        
-        # Trigger follow-up action
-        return [FollowupAction("followup_action")]
-    
+        s_name = tracker.get_slot("name").lower()
+        s_account = tracker.get_slot("account")
+        s_number = tracker.get_slot("number")
+        s_function = tracker.get_slot("function")
+
+        temp = data.check_avilable(s_name, s_account, s_number, data.d_data)
+
+        if temp == 0:
+            return [FollowupAction("utter_credentials_mismatch")]
+        else:
+            if s_function == 'account_balance':
+                return [SlotSet('balance', data.d_data[s_name]['balance']), FollowupAction("followup_balance_info")]
+            elif s_function == 'transaction_history':
+                return [SlotSet('balance', data.trans_hist[s_name]), FollowupAction("followup_transaction_info")]
+
 
 class ClearSlotsAction(Action):
     def name(self) -> Text:

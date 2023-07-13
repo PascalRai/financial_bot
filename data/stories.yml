@@ -16,44 +16,28 @@ stories:
   - intent: balance_inquiry
   - action: custom_select_function
   - action: utter_ask_credentials
-  - intent: give_credentials
-    entities:
-    - number: 9865412356
-    - account: 2168468M
-  - action: utter_balance_info
-  - action: utter_anything_else
 
 - story: transaction_history ..
   steps:
   - intent: transaction_inquiry
   - action: custom_select_function
   - action: utter_ask_credentials
-  - intent: give_credentials
-    entities:
-    - number: 9865412356
-    - account: 2168468M
-  - action: utter_transaction_info
-  - action: utter_anything_else
 
-- story: balance_inquiry cont.
+- story: inquiry cont.
   steps:
   - intent: give_credentials
     entities:
     - number: 9865412356
     - account: 2168468M
-  - action: utter_balance_info
+  - action: custom_logic_function
   - action: utter_anything_else
 
-
-
-- story: transaction_history cont.
+- story: credentials mismatch
   steps:
   - intent: give_credentials
-    entities:
-    - number: 9865415146
-    - account: 2168987B
-  - action: utter_transaction_info
-  - action: utter_anything_else
+  - action: custom_logic_function
+  - action: utter_credentials_mismatch
+  - action: utter_try_again
 
 - story: affirmative 
   steps:

@@ -23,7 +23,8 @@ pipeline:
     min_ngram: 1
     max_ngram: 4
   - name: DIETClassifier
-    epochs: 100
+# epochs is increased or decreased based on model training accuracy vs epoches
+    epochs: 50
     constrain_similarities: true
   - name: EntitySynonymMapper
   - name: ResponseSelector
@@ -45,6 +46,7 @@ policies:
     max_history: 5
     epochs: 100
   - name: TEDPolicy
+# max_history and epochs changed as per training accuracy
     max_history: 15
-    epochs: 60
+    epochs: 50
     constrain_similarities: true
