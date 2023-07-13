@@ -48,5 +48,5 @@ policies:
   - name: TEDPolicy
 # max_history and epochs changed as per training accuracy
     max_history: 15
-    epochs: 50
+    epochs: 20
     constrain_similarities: true

@@ -41,9 +41,9 @@ class CustomAction(Action):
             return [FollowupAction("utter_credentials_mismatch")]
         else:
             if s_function == 'account_balance':
-                return [SlotSet('balance', data.d_data[s_name]['balance']), FollowupAction("followup_balance_info")]
+                return [SlotSet('balance', data.d_data[s_name]['balance']), FollowupAction("utter_balance_info")]
             elif s_function == 'transaction_history':
-                return [SlotSet('balance', data.trans_hist[s_name]), FollowupAction("followup_transaction_info")]
+                return [SlotSet('balance', data.trans_hist[s_name]), FollowupAction("utter_transaction_info")]
 
 
 class ClearSlotsAction(Action):

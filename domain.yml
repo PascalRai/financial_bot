@@ -67,7 +67,7 @@ responses:
     - text: "Do you need help with anything else? (Y/N)"
 
   utter_credentials_mismatch:
-    - text: "Your {name}, {number}, {account} does not match"
+    - text: "Your credentials: {name}, {number}, and {account} does not match"
 
   utter_try_again:
     - text: "wanna try again? (Y/N)"

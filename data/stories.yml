@@ -32,6 +32,21 @@ stories:
   - action: custom_logic_function
   - action: utter_anything_else
 
+- story: balance_inquiry cont.
+  steps:
+  - intent: give_credentials
+  - action: custom_logic_function
+  - action: utter_balance_info
+  - action: utter_try_again
+
+- story: transaction_inquiry cont.
+  steps:
+  - intent: give_credentials
+  - action: custom_logic_function
+  - action: utter_transaction_info
+  - action: utter_try_again
+
+
 - story: credentials mismatch
   steps:
   - intent: give_credentials
