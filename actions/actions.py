@@ -1,27 +1,47 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions
+from typing import Any, Dict, List, Text
+from rasa_sdk import Action, Tracker
+from rasa_sdk.events import SlotSet, FollowupAction
+from rasa_sdk.executor import CollectingDispatcher
 
+class DetermineQueryTypeAction(Action):
+    def name(self) -> Text:
+        return "custom_select_function"
 
-# This is a simple example for a custom action which utters "Hello World!"
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Check the user's intent
+        intent = tracker.latest_message['intent'].get('name')
 
-# from typing import Any, Text, Dict, List
-#
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
+        if intent == 'balance_inquiry':
+            # Set the slot value as 'account_balance' if the user is asking for an account balance check
+            return [SlotSet('function', 'account_balance')]
+        elif intent == 'transaction_inquiry':
+            # Set the slot value as 'transaction_history' if the user is asking for transaction history
+            return [SlotSet('function', 'transaction_history')]
+        else:
+            # Set the slot value as None if the intent does not match the expected queries
+            return [SlotSet('function', None)]
+        
+
+class CustomAction(Action):
+    def name(self) -> Text:
+        return "custom_action"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Perform custom logic
+        
+        # Trigger follow-up action
+        return [FollowupAction("followup_action")]
+    
+
+class ClearSlotsAction(Action):
+    def name(self) -> Text:
+        return "action_clear_slots"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Clear all slots
+        slots_to_clear = tracker.slots.keys()
+        slot_events = [SlotSet(slot, None) for slot in slots_to_clear]
+        
+        # Return the slot events to clear all slots
+        return slot_events
+

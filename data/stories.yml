@@ -2,38 +2,45 @@ version: "3.1"
 
 stories:
 
-- story: check_balance
+- story: normal initial conversation
   steps:
   - intent: greet
   - action: utter_greet
+  - intent: ask_name
+    entities:
+    - name: pankaj
+  - action: utter_assistance
+  
+- story: balance_inquiry
+  steps:
   - intent: balance_inquiry
-  - action: utter_balance_inquiry
+  - action: custom_select_function
+  - action: utter_ask_credentials
   - intent: give_credentials
     entities:
-    - name: Radha
     - number: 9865412356
-    - account: 542168468M
+    - account: 2168468M
   - action: utter_balance_info
+  - action: utter_anything_else
+
+- story: transaction_history
+  steps:
+  - intent: transaction_inquiry
+  - action: custom_select_function
+  - action: utter_ask_credentials
+  - intent: give_credentials
+    entities:
+    - number: 9865412356
+    - account: 2168468M
+  - action: utter_transaction_info
   - action: utter_anything_else
 
 - story: affirmative 
   steps:
   - intent: affirm
-  - action: utter_greet
+  - action: utter_assistance
 
 - story: negative
   steps:
   - intent: deny
   - action: utter_goodbye
-
-- story: transaction_history
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: transaction_inquiry
-  - action: utter_transaction_inquiry
-  - intent: give_credentials
-  - action: utter_transaction_info
-  - action: utter_anything_else
-
-

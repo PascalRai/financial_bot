@@ -21,9 +21,22 @@ slots:
     mappings:
     - type: from_entity
       entity: number
+  function:
+    type: text
+    influence_conversation: True
+    mappings:
+      - type: custom
+  balance:
+    type: text
+    mappings:
+      - type: custom
+
+actions:
+  - custom_select_function
 
 intents:
   - greet
+  - ask_name
   - balance_inquiry
   - give_credentials
   - transaction_inquiry
@@ -34,26 +47,22 @@ intents:
 
 responses:
   utter_greet:
-  - text: "Hey! How can I help you?"
-  - text: "Hello! What can I assist you with today?"
+  - text: "Hello there, how may I call you?"
 
-  utter_balance_inquiry:
-  - text: "Sure. Could you provide me your name, phone number and account number?"
-    
-  utter_transaction_inquiry:
-  - text: "Please provide me your name, phone number and account number for your transaction details."
+  utter_assistance:
+  - text: "Hey {name}! would you like to check your balance or transaction history?"
+
+  utter_ask_credentials:
+  - text: "Sure. Could you provide phone number and account number in sequence?"
 
   utter_balance_info:
-  - text: "Dear {name} your {account} of {number} has a balance of Rs. 1000"
+  - text: "Dear {name} your {account} has a balance of Rs. 1000"
 
   utter_transaction_info:
-  - text: "There has been no transaction from your account as of yet."
+  - text: "Dear {name} your {account} account's  transaction history is: \n"
 
   utter_anything_else:
     - text: "Do you need help with anything else?"
-
-  utter_fallback:
-    - text: "I'm sorry, I didn't quite understand. Can you please rephrase or provide more information?"
 
   utter_goodbye:
   - text: "Goodbye! Have a great day"
