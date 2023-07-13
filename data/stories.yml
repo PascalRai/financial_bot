@@ -11,7 +11,7 @@ stories:
     - name: pankaj
   - action: utter_assistance
   
-- story: balance_inquiry
+- story: balance_inquiry ..
   steps:
   - intent: balance_inquiry
   - action: custom_select_function
@@ -23,7 +23,7 @@ stories:
   - action: utter_balance_info
   - action: utter_anything_else
 
-- story: transaction_history
+- story: transaction_history ..
   steps:
   - intent: transaction_inquiry
   - action: custom_select_function
@@ -32,6 +32,26 @@ stories:
     entities:
     - number: 9865412356
     - account: 2168468M
+  - action: utter_transaction_info
+  - action: utter_anything_else
+
+- story: balance_inquiry cont.
+  steps:
+  - intent: give_credentials
+    entities:
+    - number: 9865412356
+    - account: 2168468M
+  - action: utter_balance_info
+  - action: utter_anything_else
+
+
+
+- story: transaction_history cont.
+  steps:
+  - intent: give_credentials
+    entities:
+    - number: 9865415146
+    - account: 2168987B
   - action: utter_transaction_info
   - action: utter_anything_else
 
@@ -44,3 +64,4 @@ stories:
   steps:
   - intent: deny
   - action: utter_goodbye
+  - action: action_clear_slots

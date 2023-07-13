@@ -3,6 +3,8 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet, FollowupAction
 from rasa_sdk.executor import CollectingDispatcher
 
+from actions import data
+
 class DetermineQueryTypeAction(Action):
     def name(self) -> Text:
         return "custom_select_function"
@@ -24,7 +26,7 @@ class DetermineQueryTypeAction(Action):
 
 class CustomAction(Action):
     def name(self) -> Text:
-        return "custom_action"
+        return "custom_logic_function"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # Perform custom logic
