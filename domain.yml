@@ -1,0 +1,66 @@
+version: "3.1"
+
+entities:
+  - account
+  - name
+  - number
+
+slots:
+  name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: name
+  account:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: account
+  number:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: number
+
+intents:
+  - greet
+  - balance_inquiry
+  - give_credentials
+  - transaction_inquiry
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+
+responses:
+  utter_greet:
+  - text: "Hey! How can I help you?"
+  - text: "Hello! What can I assist you with today?"
+
+  utter_balance_inquiry:
+  - text: "Sure. Could you provide me your name, phone number and account number?"
+    
+  utter_transaction_inquiry:
+  - text: "Please provide me your name, phone number and account number for your transaction details."
+
+  utter_balance_info:
+  - text: "Dear {name} your {account} of {number} has a balance of Rs. 1000"
+
+  utter_transaction_info:
+  - text: "There has been no transaction from your account as of yet."
+
+  utter_anything_else:
+    - text: "Do you need help with anything else?"
+
+  utter_fallback:
+    - text: "I'm sorry, I didn't quite understand. Can you please rephrase or provide more information?"
+
+  utter_goodbye:
+  - text: "Goodbye! Have a great day"
+  
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,39 @@
+version: "3.1"
+
+stories:
+
+- story: check_balance
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: balance_inquiry
+  - action: utter_balance_inquiry
+  - intent: give_credentials
+    entities:
+    - name: Radha
+    - number: 9865412356
+    - account: 542168468M
+  - action: utter_balance_info
+  - action: utter_anything_else
+
+- story: affirmative 
+  steps:
+  - intent: affirm
+  - action: utter_greet
+
+- story: negative
+  steps:
+  - intent: deny
+  - action: utter_goodbye
+
+- story: transaction_history
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: transaction_inquiry
+  - action: utter_transaction_inquiry
+  - intent: give_credentials
+  - action: utter_transaction_info
+  - action: utter_anything_else
+
+

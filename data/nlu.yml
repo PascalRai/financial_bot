@@ -1,0 +1,89 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n  
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: balance_inquiry
+  examples: |
+    - check balance
+    - my balance 
+    - I need to see my balance
+    - What's my balance?
+    - I want to check my account balance.
+    - Can you tell me how much money I have?
+    - I need to know how much money I have in my account.
+    - How much money is there in my account?
+
+- intent: give_credentials
+  examples: |
+    - [Ram](name), [9860844556](number), [658942A](account)
+    - [9851045678](number), [Nita](name), [12345678](account)
+    - [778549652](account), [Sean](name), [9865075213](number)
+    - [Phil](name), [000042069A](account), [9862170443](number)
+    - [Sabitri](name), [000987654B](account), [9865243158](number)
+    - [monsoon](name), [9865214369](number), [556893254C](account)
+    - [lolita](name), [9568412355](number), [5263987415N](account)
+    - [tirtha](name), [9632584125](number), [3266859541B](account)
+    - [jignesh](name), [65238451V](account), [9865231458](number)
+    
+- intent: transaction_inquiry
+  examples: |
+    - Transaction
+    - Transaction history
+    - Can i get my transaction history
+    - Could you show my transaction for the past month?
+    - Transaction?
+    - Transaction details
+    
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
