@@ -6,9 +6,6 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: ask_name
-    entities:
-    - name: pankaj
   - action: utter_assistance
   
 - story: balance_inquiry ..
@@ -27,6 +24,7 @@ stories:
   steps:
   - intent: give_credentials
     entities:
+    - name: suraj
     - number: 9865412356
     - account: 2168468M
   - action: custom_logic_function
@@ -52,14 +50,3 @@ stories:
   - action: custom_logic_function
   - action: utter_credentials_mismatch
   - action: utter_try_again
-
-- story: affirmative 
-  steps:
-  - intent: affirm
-  - action: utter_assistance
-
-- story: negative
-  steps:
-  - intent: deny
-  - action: utter_goodbye
-  - action: action_clear_slots

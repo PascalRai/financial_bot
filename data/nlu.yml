@@ -30,22 +30,6 @@ nlu:
     - bye bye
     - see you later
 
-- intent: ask_name
-  examples: |
-    - My name is [Pranish](name)
-    - mero nam [kriti](name) ho
-    - my name is [sankhar](name)
-    - [dristi](name) Sigdel
-    - [Selina](name) Maharjan
-    - [Prajaya](name)
-    - [pranita](name)
-    - [Jenish](name) adhikari
-    - [sagar](name) kafle
-    - [lolita](name)
-    - [Ram](name)
-    - [Sabitri](name)
-    - [monsoon](name)
-
 - intent: affirm
   examples: |
     - yes
@@ -80,16 +64,20 @@ nlu:
 
 - intent: give_credentials
   examples: |
-    - [9860844556](number), [6589429A](account)
-    - [9851045678](number), [1234567A](account)
-    - [7785496B](account), [9865075213](number)
-    - [0000429A](account), [9862170443](number)
-    - [0009654B](account), [9865243158](number)
-    - [9865214369](number), [5593254C](account)
-    - [9568412355](number), [5267415N](account)
-    - [9632584125](number), [2668541B](account)
-    - [6528451V](account), [9865231458](number)
-    
+    - [Pranish](name), [9860844556](number), [6589429A](account)
+    - [kriti](name), [9851045678](number), [1234567A](account)
+    - [7785496B](account), [9865075213](number), [sankhar](name)
+    - [0000429A](account), [9862170443](number), [dristi](name) Sigdel
+    - [0009654B](account), [Selina](name) Maharjan, [9865243158](number)
+    - [9865214369](number), [5593254C](account), [Prajaya](name)
+    - [pranita](name), [9568412355](number), [5267415N](account)
+    - [9632584125](number), [Jenish](name) adhikari, [2668541B](account)
+    - [sagar](name) kafle, [6528451V](account), [9865231458](number)
+    - [6528521T](account), [9862147455](number), [lolita](name)
+    - [Ram](name), [6575351V](account), [9865212357](number)
+    - [6526541A](account), [Sabitri](name), [9885201458](number)
+    - [monsoon](name), [6528541M](account), [9874631458](number)
+
 - intent: transaction_inquiry
   examples: |
     - Transaction

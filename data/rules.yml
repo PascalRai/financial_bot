@@ -2,12 +2,42 @@ version: "3.1"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
+# - rule: assistance flow 1
+#   condition:
+#   - slot_was_set:
+#     - name
+#   steps:
+#   - intent: balance_inquiry
+#   - action: custom_select_function
+#   - action: utter_ask_credentials
+
+# - rule: assistance flow 2
+#   condition:
+#   - slot_was_set:
+#     - name
+#   steps:
+#   - intent: transaction_inquiry
+#   - action: custom_select_function
+#   - action: utter_ask_credentials
+
+- rule: Ask the user to rephrase in case of low NLU confidence
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
+
 
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: affirmative 
+  steps:
+  - intent: affirm
+  - action: utter_assistance
+
+- rule: negative
+  steps:
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_clear_slots

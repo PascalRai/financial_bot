@@ -23,7 +23,6 @@ slots:
       entity: number
   function:
     type: text
-    influence_conversation: True
     mappings:
       - type: custom
   balance:
@@ -38,7 +37,6 @@ actions:
 
 intents:
   - greet
-  - ask_name
   - balance_inquiry
   - give_credentials
   - transaction_inquiry
@@ -49,13 +47,13 @@ intents:
 
 responses:
   utter_greet:
-  - text: "Hello there! how may I call you?"
+  - text: "Hello there! how may I help you?"
 
   utter_assistance:
-  - text: "Hey {name}! would you like to check your balance or transaction history?"
+  - text: "Select SERVICES: Check balance or transaction history?"
 
   utter_ask_credentials:
-  - text: "Sure. Could you provide phone number and account number in sequence?"
+  - text: "Sure. Could you provide name, phone number and account number in sequence?"
 
   utter_balance_info:
   - text: "Dear {name}, your {account} has a balance of Rs. {balance}"
@@ -75,6 +73,9 @@ responses:
   utter_goodbye:
   - text: "Goodbye! Have a great day"
   
+  utter_please_rephrase:
+  - text: "Apologies, I'm having trouble understanding your input. Could you please phrase it differently?"
+
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
