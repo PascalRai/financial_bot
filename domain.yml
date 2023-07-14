@@ -72,6 +72,9 @@ responses:
 
   utter_goodbye:
   - text: "Goodbye! Have a great day"
+
+  utter_example:
+  - text: "example: prajwal, 9876543210, 0123456A"
   
   utter_please_rephrase:
   - text: "Apologies, I'm having trouble understanding your input. Could you please phrase it differently?"

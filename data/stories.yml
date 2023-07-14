@@ -13,12 +13,14 @@ stories:
   - intent: balance_inquiry
   - action: custom_select_function
   - action: utter_ask_credentials
+  - action: utter_example
 
 - story: transaction_history ..
   steps:
   - intent: transaction_inquiry
   - action: custom_select_function
   - action: utter_ask_credentials
+  - action: utter_example
 
 - story: inquiry cont.
   steps:
