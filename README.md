@@ -8,3 +8,14 @@ What it does?
 4. Checks if credentials matches from the database
 5. Prints the output of the service chosen if credentials match
 6. Asks for would you try again if credentials mismatch
+
+___
+To run it, use:
+
+- rasa train
+
+- rasa run actions
+
+- rasa run
+
+from the rasa directory.
